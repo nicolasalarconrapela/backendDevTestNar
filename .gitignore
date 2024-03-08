@@ -382,3 +382,13 @@ target/
 .settings
 .springBeans
 .sts4-cache
+
+# LOG
+*.log
+*.gz
+*.zip
+*/logs/**/
+
+# DOCKER
+/var/**
+/data/**/
