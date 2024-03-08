@@ -29,7 +29,7 @@ En primer lugar, es posible que deba habilitar el uso compartido de archivos par
 Luego puedes iniciar los simulacros y otra infraestructura necesaria con el siguiente comando.
 
 ```docker
-docker-compose up -d simulado influxdb gráfica
+docker-compose up -d simulado influxdb grafana
 ```
 
 Compruebe que los simulacros funcionen con una solicitud de muestra a [http://localhost:3001/product/1/similarids](http://localhost:3001/product/1/similarids).
@@ -37,7 +37,7 @@ Compruebe que los simulacros funcionen con una solicitud de muestra a [http://lo
 Para ejecutar la ejecución de prueba:
 
 ```docker
-docker-compose ejecutar --rm k6 ejecutar scripts/test.js
+docker-compose run --rm k6 run scripts/test.js
 ```
 
 Explore [http://localhost:3000/d/Le2Ku9NMk/k6- Performance-test](http://localhost:3000/d/Le2Ku9NMk/k6-Performance-test) para ver los resultados.
