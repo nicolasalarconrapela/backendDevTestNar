@@ -1,15 +1,17 @@
 package es.nunegal.api.nar.backenddevtestnar.controller;
 
+import es.nunegal.api.nar.backenddevtestnar.model.Product;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Clase controlador de Home
+ * Controlador de {@link Product}
  */
+@Log4j2
 @RestController
-public class HomeController {
-    @RequestMapping("/")
-    public String home() {
-        return "Hello World!";
-    }
+@RequestMapping("${path.product}")
+public class ProductController {
+
+
 }
