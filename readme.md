@@ -1,8 +1,9 @@
 # backendDevTest
----
 
 [![CircleCI_Master](https://dl.circleci.com/status-badge/img/gh/nicolasalarconrapela/backendDevTestNar/tree/master.svg?style=svg&circle-token=ea2e666c9c55ffaa692f2b649469e5c700f85e4b)](https://dl.circleci.com/status-badge/redirect/gh/nicolasalarconrapela/backendDevTestNar/tree/master)
  [![CircleCI_DEV](https://dl.circleci.com/status-badge/img/gh/nicolasalarconrapela/backendDevTestNar/tree/devops%2FNAR.svg?style=svg&circle-token=ea2e666c9c55ffaa692f2b649469e5c700f85e4b)](https://dl.circleci.com/status-badge/redirect/gh/nicolasalarconrapela/backendDevTestNar/tree/devops%2FNAR)
+
+---
 
 - [backendDevTest](#backenddevtest)
   - [Prueba técnica de desarrollo backend - 🇪🇸](#prueba-técnica-de-desarrollo-backend---)
@@ -46,6 +47,10 @@ docker-compose run --rm k6 run scripts/test.js
 
 Explore [http://localhost:3000/d/Le2Ku9NMk/k6- Performance-test](http://localhost:3000/d/Le2Ku9NMk/k6-Performance-test) para ver los resultados.
 
+Para Swagger podemos conectarnos a través de :
+  
+  http://localhost:8080/doc/swagger-ui/index.html
+
 ### Evaluación
 
 Se considerarán los siguientes temas:
@@ -87,6 +92,10 @@ docker-compose run --rm k6 run scripts/test.js
 ```
 
 Browse [http://localhost:3000/d/Le2Ku9NMk/k6-performance-test](http://localhost:3000/d/Le2Ku9NMk/k6-performance-test) to view the results.
+
+For Swagger we can connect through:
+  
+  http://localhost:8080/doc/swagger-ui/index.html
 
 ### Evaluation
 
