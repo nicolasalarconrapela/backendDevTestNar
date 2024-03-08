@@ -1,5 +1,9 @@
 # backendDevTest
 
+[![CircleCI_Master](https://dl.circleci.com/status-badge/img/gh/nicolasalarconrapela/backendDevTestNar/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/nicolasalarconrapela/backendDevTestNar/tree/master)
+
+[![CircleCI_DEV](https://dl.circleci.com/status-badge/img/gh/nicolasalarconrapela/backendDevTestNar/tree/devops%2FNAR.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/nicolasalarconrapela/backendDevTestNar/tree/devops%2FNAR)
+
 - [backendDevTest](#backenddevtest)
   - [Prueba técnica de desarrollo backend - 🇪🇸](#prueba-técnica-de-desarrollo-backend---)
     - [Pruebas y autoevaluación](#pruebas-y-autoevaluación)
