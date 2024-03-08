@@ -1,5 +1,10 @@
 # CHANGELOG
 
+- `V.0.0.2`
+
+  - Creación de RestController
+  - Fix README
+
 - `V.0.0.1`
 
   - Creación inicial del proyecto de SpringBoot con maven.
