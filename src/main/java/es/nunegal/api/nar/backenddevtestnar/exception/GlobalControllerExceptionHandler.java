@@ -4,16 +4,16 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-import static es.nunegal.api.nar.backenddevtestnar.util.Constants.BAD_REQUEST_STATUS_CODE_REASON;
-import static es.nunegal.api.nar.backenddevtestnar.util.Constants.BAD_REQUEST_STATUS_CODE_VALUE;
+import static es.nunegal.api.nar.backenddevtestnar.util.Constants.*;
 
 /**
  * {@link ControllerAdvice}
  */
-@ControllerAdvice
 @Log4j2
+@ControllerAdvice
 public class GlobalControllerExceptionHandler {
 
     /**
@@ -36,6 +36,35 @@ public class GlobalControllerExceptionHandler {
 
         return ResponseEntity.badRequest().body(errorResponse);
     }
+
+    /**
+     * Control de excepción del tipo {@link RestClientException}
+     *
+     * @param ex {@link RestClientException}
+     * @return Mensaje de error
+     */
+    @ExceptionHandler(RestClientException.class)
+    public ResponseEntity<ApiErrorResponse> handleRestClientException(RestClientException ex) {
+
+        String errorMessage = "Error al comunicarse con un servicio externo.";
+        log.error("❌ " + errorMessage, ex);
+
+        ApiErrorResponse errorResponse = new ApiErrorResponse(INTERNAL_SERVER_ERROR_STATUS_CODE_VALUE, INTERNAL_SERVER_ERROR_STATUS_CODE_REASON, errorMessage);
+
+        return ResponseEntity.status(INTERNAL_SERVER_ERROR).body(errorResponse);
+    }
+
+    @ExceptionHandler(NullPointerException.class)
+    public ResponseEntity<ApiErrorResponse> nullPointerException(RestClientException ex) {
+
+        String errorMessage = "❌ Error interno de la aplicación.";
+        log.error("❌ " + errorMessage, ex);
+
+        ApiErrorResponse errorResponse = new ApiErrorResponse(INTERNAL_SERVER_ERROR_STATUS_CODE_VALUE, INTERNAL_SERVER_ERROR_STATUS_CODE_REASON, errorMessage);
+
+        return ResponseEntity.status(INTERNAL_SERVER_ERROR).body(errorResponse);
+    }
+
 
     /**
      * Mensaje a partir de los parámetros

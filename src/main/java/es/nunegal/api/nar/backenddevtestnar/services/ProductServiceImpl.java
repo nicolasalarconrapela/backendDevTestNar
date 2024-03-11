@@ -3,11 +3,9 @@ package es.nunegal.api.nar.backenddevtestnar.services;
 import es.nunegal.api.nar.backenddevtestnar.model.Product;
 import es.nunegal.api.nar.backenddevtestnar.repository.ProductRepository;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,9 +32,9 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getSimilarProductbyId(String productId) {
 
         if (productId != null) {
-            log.info("ℹ️ Inicio 02 | Búsqueda de producto con id : {}", productId);
+            log.info("📋 Inicio 02 | Búsqueda de producto con id : {}", productId);
             List<String> similarProductsIds = productRepository.getSimilarProductFluxIds(productId);
-            log.info("ℹ️ Obtenido");
+            log.info("ℹ️ Obtenido : {} ", similarProductsIds);
 
         } else {
             log.error("❌ El id es cero");
