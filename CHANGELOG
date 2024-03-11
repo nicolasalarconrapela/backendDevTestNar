@@ -1,5 +1,14 @@
 # CHANGELOG
 
+- `V.0.0.4`
+  - Mejora en la API mediante properties
+  - Gestión de perfiles DEV/PRO
+  - Manejo de errores y constantes
+  - Posibilidad de listar Productos
+    - Creación de Repository
+    - Eliminamos ProductControllergit 
+  - Agregación de ControlAdvice
+
 - `V.0.0.3`
 
   - Primeras implementaciones
