@@ -1,5 +1,19 @@
 # CHANGELOG
 
+- `V.0.0.3`
+
+  - Primeras implementaciones
+    - Primeras implementaciones
+    - Mejoras en documentación
+  - Esquema inicial
+  - Agregación de Swagger
+  - Fix badges con Token API
+  - Añadimos badges de CircleCI
+  - Add Circle.yaml
+  - Fix configuración del properties
+  - Agregación de logs
+  - Fix nombres en docker composer
+
 - `V.0.0.2`
 
   - Creación de RestController
