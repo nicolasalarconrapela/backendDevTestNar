@@ -1,13 +1,13 @@
 package es.nunegal.api.nar.backenddevtestnar.services;
 
 import es.nunegal.api.nar.backenddevtestnar.model.Product;
+import es.nunegal.api.nar.backenddevtestnar.repository.ProductRepository;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Servicio de {@link Product
@@ -15,7 +15,13 @@ import java.util.List;
 @Log4j2
 @Service
 public class ProductServiceImpl implements ProductService {
-    
+
+    private final ProductRepository productRepository;
+
+    public ProductServiceImpl(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
     /**
      * Obtiene la lista de los productos por el ID
      *
@@ -23,15 +29,22 @@ public class ProductServiceImpl implements ProductService {
      * @return Lista de {@link Product}
      */
     @Override
-    public List<Product> getSimilarProductbyProductId(int productId) {
+    public List<Product> getSimilarProductbyId(String productId) {
 
-        if (productId != 0) {
-            log.debug("ℹ️ Inicio | Búsqueda de producto con id : {}", productId);
-            return new ArrayList<>();
+        if (productId != null) {
+            log.info("📋 Inicio 02 | Búsqueda de producto con id : {}", productId);
+            List<String> similarProductsIds = productRepository.getSimilarProductFluxIds(productId);
+            log.info("ℹ️ Obtenido : {} ", similarProductsIds);
+
+            log.info(CollectionUtils.isEmpty(similarProductsIds) ?
+                    "ℹ️ No hemos encontrado productos con ID : " + productId :
+                    "ℹ️ Hemos encontrado productos con ID : " + productId + " - " + similarProductsIds);
+            return similarProductsIds.stream()
+                    .map(productRepository::getProductFluxById)
+                    .collect(Collectors.toList());
         } else {
             log.error("❌ El id es cero");
             return null;
         }
-
     }
 }
