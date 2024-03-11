@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>es.nunegal.api.nar</groupId>
 	<artifactId>backenddevtestnar</artifactId>
-	<version>0.0.4</version>
+	<version>1.0.0</version>
 	<packaging>war</packaging>
 	<name>backenddevtestnar</name>
 	<description>API REST Nunegal NAR</description>

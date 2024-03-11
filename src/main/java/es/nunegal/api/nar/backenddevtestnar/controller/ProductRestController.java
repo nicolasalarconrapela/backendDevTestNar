@@ -18,7 +18,7 @@ import java.util.List;
 @Log4j2
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("${path.api}") // APi/V1
+@RequestMapping("${path.api}")
 public class ProductRestController {
 
 

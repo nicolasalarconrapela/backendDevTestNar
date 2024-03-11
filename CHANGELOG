@@ -1,5 +1,9 @@
 # CHANGELOG
 
+- `V.1.0.0`
+  - Agregamos banner
+  - Fixs comments
+
 - `V.0.0.4`
   - Mejora en la API mediante properties
   - Gestión de perfiles DEV/PRO
