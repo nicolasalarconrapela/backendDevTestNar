@@ -2,12 +2,14 @@ version: "3.3"
 services:
   influxdb:
     image: influxdb:1.8.2
+    container_name: influxdb_dev
     ports:
       - "8086:8086"
     environment:
       - INFLUXDB_DB=k6
   grafana:
     image: grafana/grafana:8.1.2
+    container_name: grafana_dev
     ports:
       - "3000:3000"
     environment:
@@ -18,6 +20,7 @@ services:
       - ./shared/grafana:/etc/grafana/provisioning/
   simulado:
     image : ldabiralai/simulado:latest
+    container_name: simulado_dev
     ports:
       - "3001:80"
     volumes:
@@ -25,6 +28,7 @@ services:
     command: ./bin/simulado -f /app/mocks.json
   k6:
     image: loadimpact/k6:0.28.0
+    container_name: k6_dev
     ports:
       - "6565:6565"
     volumes:
