@@ -1,6 +1,7 @@
 package es.nunegal.api.nar.backenddevtestnar.controller;
 
 import es.nunegal.api.nar.backenddevtestnar.model.Product;
+import es.nunegal.api.nar.backenddevtestnar.repository.ProductRepository;
 import es.nunegal.api.nar.backenddevtestnar.services.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -23,6 +24,7 @@ import java.util.List;
 @RequestMapping("${path.api}") // APi/V1
 public class ProductRestController {
 
+
     private final ProductService productService;
 
     /**
@@ -32,16 +34,27 @@ public class ProductRestController {
      * @return Lista de productos
      */
     @GetMapping(value = "${path.product}/{productId}/similar")
-    public ResponseEntity<List<Product>> getSimilarProductbyProductId(@PathVariable("productId") Integer productId) {
+    public ResponseEntity<List<Product>> getSimilarProductbyProductId(@PathVariable("productId") String productId) {
 
-        List<Product> productList = productService.getSimilarProductbyProductId(productId);
+        log.info("ℹ️ 01 Inicio");
 
+        List<Product> productList = productService.getSimilarProductbyId(productId);
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(productService.getSimilarProductbyProductId(productId));
+            int id = Integer.parseInt(String.valueOf(productId));
+            // Product similarProducts = productRepository.getSimilarProductFluxIds(productId);
+
+            // ... (logic using the parsed ID)
+        } catch (NumberFormatException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "as " + e.getMessage());
+        }
+        try {
+            // return ResponseEntity.status(HttpStatus.OK).body(productService.getSimilarProductbyProductId(productId));
         } catch (Exception e) {
             log.error("❌ Se ha producido un error : {}", e.getMessage());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
 
+
+        return ResponseEntity.ok(productList);
     }
 }

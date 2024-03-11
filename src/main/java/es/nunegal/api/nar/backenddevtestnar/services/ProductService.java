@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface ProductService {
 
-    List<Product> getSimilarProductbyProductId(int productId);
+    List<Product> getSimilarProductbyId(String productId);
 
 }
