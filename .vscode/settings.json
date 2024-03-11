@@ -1,0 +1,19 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#3087b6",
+        "titleBar.inactiveBackground": "#255eb286",
+        "titleBar.activeForeground": "#fffdfd",
+        "titleBar.inactiveForeground": "#fffefe",
+        "editor.background": "#000000e0", // Fondo negro
+        "terminal.background": "#00203d", // Fondo de la terminal en negro
+        // "terminal.foreground": "#FFFFFF" // Color del texto en la terminal en blanco
+    
+  }
+    ,
+    "window.title": "${dirty}${activeEditorShort}",
+    "diffEditor.ignoreTrimWhitespace": true,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "workbench.colorTheme": "Material Theme",
+    "workbench.iconTheme": "material-icon-theme"
+}

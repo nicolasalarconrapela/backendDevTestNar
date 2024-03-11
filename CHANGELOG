@@ -1,0 +1,37 @@
+# CHANGELOG
+
+- `V.1.0.0`
+  - Agregamos banner
+  - Fixs comments
+
+- `V.0.0.4`
+  - Mejora en la API mediante properties
+  - Gestión de perfiles DEV/PRO
+  - Manejo de errores y constantes
+  - Posibilidad de listar Productos
+    - Creación de Repository
+    - Eliminamos ProductControllergit 
+  - Agregación de ControlAdvice
+
+- `V.0.0.3`
+
+  - Primeras implementaciones
+    - Primeras implementaciones
+    - Mejoras en documentación
+  - Esquema inicial
+  - Agregación de Swagger
+  - Fix badges con Token API
+  - Añadimos badges de CircleCI
+  - Add Circle.yaml
+  - Fix configuración del properties
+  - Agregación de logs
+  - Fix nombres en docker composer
+
+- `V.0.0.2`
+
+  - Creación de RestController
+  - Fix README
+
+- `V.0.0.1`
+
+  - Creación inicial del proyecto de SpringBoot con maven.
