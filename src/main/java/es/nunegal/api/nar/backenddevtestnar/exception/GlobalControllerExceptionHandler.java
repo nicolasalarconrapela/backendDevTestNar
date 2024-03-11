@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
@@ -13,7 +14,7 @@ import static es.nunegal.api.nar.backenddevtestnar.util.Constants.*;
  * {@link ControllerAdvice}
  */
 @Log4j2
-@ControllerAdvice
+@RestController
 public class GlobalControllerExceptionHandler {
 
     /**
@@ -65,7 +66,7 @@ public class GlobalControllerExceptionHandler {
         return ResponseEntity.status(INTERNAL_SERVER_ERROR).body(errorResponse);
     }
 
-
+    
     /**
      * Mensaje a partir de los parámetros
      *

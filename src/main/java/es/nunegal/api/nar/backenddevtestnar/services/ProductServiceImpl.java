@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Log4j2
 @Service
 public class ProductServiceImpl implements ProductService {
-    
+
     private final ProductRepository productRepository;
 
     public ProductServiceImpl(ProductRepository productRepository) {
@@ -36,18 +36,15 @@ public class ProductServiceImpl implements ProductService {
             List<String> similarProductsIds = productRepository.getSimilarProductFluxIds(productId);
             log.info("ℹ️ Obtenido : {} ", similarProductsIds);
 
+            log.info(CollectionUtils.isEmpty(similarProductsIds) ?
+                    "ℹ️ No hemos encontrado productos con ID : " + productId :
+                    "ℹ️ Hemos encontrado productos con ID : " + productId + " - " + similarProductsIds);
+            return similarProductsIds.stream()
+                    .map(productRepository::getProductFluxById)
+                    .collect(Collectors.toList());
         } else {
             log.error("❌ El id es cero");
             return null;
         }
-
-        List<String> similarProductsIds = productRepository.getSimilarProductFluxIds(productId);
-
-        log.info(CollectionUtils.isEmpty(similarProductsIds) ?
-                "ℹ️ No hemos encontrado productos con ID : " + productId :
-                "ℹ️ Hemos encontrado productos con ID : " + productId + " - " + similarProductsIds);
-        return similarProductsIds.stream()
-                .map(productRepository::getProductFluxById)
-                .collect(Collectors.toList());
     }
 }

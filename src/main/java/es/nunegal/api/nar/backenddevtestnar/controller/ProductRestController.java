@@ -31,20 +31,11 @@ public class ProductRestController {
      * @return Lista de productos
      */
     @GetMapping(value = "${path.product}/{productId}/similar")
-    public ResponseEntity<List<Product>> getSimilarProductbyProductId(@PathVariable("productId") String productId) {
+    public ResponseEntity<List<Product>> getSimilarProductbyProductId(@PathVariable("productId") String productId)  {
 
         log.info("ℹ️ 01 Inicio - productId : {} ", productId);
         List<Product> productList;
-//        try {
         productList = productService.getSimilarProductbyId(productId);
-//        } catch (NumberFormatException e) {
-//            log.error("a❌ Se ha producido un error : {}", e.getMessage());
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "❌ Se ha producido un error :" + e.getMessage());
-//        } catch (RestClientException e) {
-//            log.error("❌ Se ha producido un error : {}", e.getMessage());
-//            throw new RestClientException("❌ Se ha producido un error.", e);
-//        }
-
         return ResponseEntity.ok(productList);
     }
 }
